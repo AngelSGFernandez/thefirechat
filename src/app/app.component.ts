@@ -12,5 +12,5 @@ export class AppComponent {
   public chats: Observable<any[]>;
   constructor(firestore: AngularFirestore) {
     this.chats = firestore.collection('chats').valueChanges();
-  }
+  }//
 }
