@@ -1,19 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
 .main-container{
   margin-top: 40px;
   margin-bottom: 150px;
+  border: 1px solid grey;
+  border-radius: 20px;
+  padding: 10px;
 }
 
 .puntero{
   cursor: pointer;
 }
 
+.button-border{
+  border-radius: 20px;
+  margin: 5px;
+}
+
+.header-chat{
+  background-color: #007BFF;
+  border-radius: 20px;
+  margin: 5px;
+}
 
 .chat-window{
   padding: 10px;
-  width: 300px;
+  width: 600px;
   height: 400px;
   overflow: hidden;
-  border: 1px solid #4080FF;
+  border: 1px solid grey;
   border-radius: 20px;
 }
 
