@@ -1,15 +1,19 @@
 <div class="container header-chat">
   <h1>Chat</h1>
+
 </div>
 
-<div class="d-flex flex-row justify-content-between p-3 adiv text-white">
-  <i class="fas fa-chevron-left"></i>
-  <span class="pb-3">Live chat</span>
-  <i class="fas fa-times"></i>
-  </div>
 <hr>
 
 <div class="app-mensajes" id="app-mensajes">
+
+  <div class="text-center">
+    <button type="button"
+            class="btn btn-danger button-border text-center"
+            (click)="cargarMasMensajes()">
+            Mas mensajes
+    </button>
+  </div>
 
   <div *ngFor="let chat of _cs.chats"
         [ngClass]="{ 'text-end': _cs.usuario.uid == chat.uid }">
@@ -22,19 +26,6 @@
       {{ chat.mensaje }}
     </p>
   </div>
-  <!-- <div>
-    <span class="badge bg-success">Angel</span>
-    <p>
-      Mensaje de muestra
-    </p>
-  </div>
-
-  <div class="text-end">
-    <span class="badge bg-info">Angel</span>
-    <p>
-      Mensaje de muestra
-    </p>
-  </div> -->
 
 </div>
 
@@ -43,3 +34,4 @@
         class="form-control"
         (keyup.enter)="enviarMensaje()"
         placeholder="Enviar Mensaje">
+

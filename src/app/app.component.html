@@ -5,14 +5,19 @@
 </ul> -->
 <div class="container main-container">
 
-  <div class="container header-chat">
+  <div class="container"
+        [ngClass]="{ 'header-chat': _cs.usuario.uid,
+                      'text-center': !_cs.usuario.uid }">
     <div class="row">
       <div class="col">
         <h1>The FireChat</h1>
       </div>
       <div class="col">
         <div class=" text-end">
-          <button type="button" class="btn btn-danger button-border" *ngIf="_cs.usuario.uid" (click)="_cs.logout()">
+          <button type="button"
+                  class="btn btn-danger button-border"
+                  *ngIf="_cs.usuario.uid"
+                  (click)="_cs.logout()">
             Salir
           </button>
         </div>

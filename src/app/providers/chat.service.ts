@@ -49,9 +49,8 @@ export class ChatService {
     this.afAuth.signOut();
   }
 
-  cargarMensajes() {
-    this.itemsCollection = this.afs.collection<Mensaje>('chats', ref => ref.orderBy('fecha','desc')
-                                                                            .limit(5));
+  cargarMensajes(limite?: number) {
+    this.itemsCollection = this.afs.collection<Mensaje>('chats', ref => this.limitarMensaje(ref, limite) );
 
     return this.itemsCollection.valueChanges()
                                 .pipe( map( (mensajes: Mensaje[]) => {
@@ -66,6 +65,10 @@ export class ChatService {
                                   return this.chats;
                                   // this.chats = mensajes;
                                 }))
+  }
+
+  limitarMensaje(ref: any, limite?: any) {
+    return ref.orderBy('fecha','desc').limit(limite);
   }
 
   agregarMensaje( texto: string ) {
