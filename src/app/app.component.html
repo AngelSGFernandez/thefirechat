@@ -1,0 +1,54 @@
+<!-- <ul>
+  <li class="text" *ngFor="let chat of chats | async">
+    {{chat.mensaje}}
+  </li>
+</ul> -->
+<div class="container main-container">
+
+  <div class="container"
+        [ngClass]="{ 'header-chat': _cs.usuario.uid,
+                      'text-center': !_cs.usuario.uid }">
+    <div class="row">
+      <div class="col">
+        <h1>The FireChat</h1>
+      </div>
+      <div class="col">
+        <div class=" text-end">
+          <button type="button"
+                  class="btn btn-danger button-border"
+                  *ngIf="_cs.usuario.uid"
+                  (click)="_cs.logout()">
+            Salir
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    <!-- <div class="col">
+      <div class=" text-end">
+        <button type="button"
+                class="btn btn-danger"
+                *ngIf="_cs.usuario.uid"
+                (click)="_cs.logout()">
+          Salir
+      </button>
+    </div>
+  </div> -->
+    <!-- <div class="col-md-12 text-end" *ngIf="_cs.usuario.uid">
+      <button type="button"
+              class="btn btn-danger"
+              (click)="_cs.logout()">
+        Salir
+      </button>
+    </div> -->
+
+
+  <app-login *ngIf="!_cs.usuario.uid"></app-login>
+
+  <div class="chat-window" *ngIf="_cs.usuario.uid">
+    <app-chats></app-chats>
+  </div>
+
+</div>

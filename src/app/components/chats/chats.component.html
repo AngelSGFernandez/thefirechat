@@ -1,0 +1,37 @@
+<div class="container header-chat">
+  <h1>Chat</h1>
+
+</div>
+
+<hr>
+
+<div class="app-mensajes" id="app-mensajes">
+
+  <div class="text-center">
+    <button type="button"
+            class="btn btn-danger button-border text-center"
+            (click)="cargarMasMensajes()">
+            Mas mensajes
+    </button>
+  </div>
+
+  <div *ngFor="let chat of _cs.chats"
+        [ngClass]="{ 'text-end': _cs.usuario.uid == chat.uid }">
+    <span class="badge bg-success"
+          [ngClass]="{ 'bg-success': _cs.usuario.uid == chat.uid,
+                        'bg-info': _cs.usuario.uid != chat.uid }">
+          {{ chat.nombre }}
+    </span>
+    <p>
+      {{ chat.mensaje }}
+    </p>
+  </div>
+
+</div>
+
+<input type="text" name="mensaje"
+        [(ngModel)]="mensaje"
+        class="form-control"
+        (keyup.enter)="enviarMensaje()"
+        placeholder="Enviar Mensaje">
+
